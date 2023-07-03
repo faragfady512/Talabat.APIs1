@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -36,7 +37,7 @@ namespace Talabat.APIs1
            
             services.AddDbContext<StoreDbConetxt>(options =>
             {
-                options.UseSqlServer();
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnetions"));
             });
             
         }
